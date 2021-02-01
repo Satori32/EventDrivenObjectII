@@ -27,10 +27,10 @@ public:
 		return true;
 	}
 
-	Data& GetDara() {
+	Data& GetData() {
 		return D;
 	}
-	const Data& GetDara() const {
+	const Data& GetData() const {
 		return D;
 	}
 protected:
@@ -48,13 +48,13 @@ enum class Event {
 int main() {
 	EventDrivenObject<int, Event> EDO;
 
-	EDO.Add(Event::Init, [](decltype(EDO)& o)->bool {o.GetDara() = 0; return true; });
+	EDO.Add(Event::Init, [](decltype(EDO)& o)->bool {o.GetData() = 0; return true; });
 
 	EDO.Trigger(Event::Init);
 
 	EDO.Erase(Event::Init);
 
-	std::cout << EDO.GetDara() << std::endl;
+	std::cout << EDO.GetData() << std::endl;
 
 	return 0;
 }

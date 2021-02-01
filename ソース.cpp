@@ -30,7 +30,9 @@ public:
 	Data& GetDara() {
 		return D;
 	}
-
+	const Data& GetDara() const {
+		return D;
+	}
 protected:
 	std::map<Event, Fun> M;
 	Data D = { 0, };

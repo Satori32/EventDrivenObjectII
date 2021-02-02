@@ -22,15 +22,17 @@ public:
 		auto it = M.find(E);
 		if (it != M.end()) {
 			M.erase(it);
+			return true;
 		}
-		return true;
+		return false;
 	}
 	bool Trigger(const Event& E) {
 		auto it = M.find(E);
 		if (it != M.end()) {
 			M[E](*this);
+			return true;
 		}
-		return true;
+		return false;
 	}
 
 	Data& GetData() {
